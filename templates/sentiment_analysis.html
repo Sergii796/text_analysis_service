@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis</h1>
+        <p>
+            Analyze the emotional tone of your text using state-of-the-art sentiment analysis models like VADER, TextBlob, and Transformers.
+            Determine whether your text conveys positive, neutral, or negative emotions.
+        </p>
+        <h2>Example Input</h2>
+        <p>
+            "I absolutely love the new design of the app. It’s user-friendly and efficient!"
+        </p>
+        <p>
+            <strong>Result:</strong> Positive Sentiment with a compound score of 0.95.
+        </p>
+        <h2>Try it Yourself</h2>
+        <textarea id="sentiment_text" placeholder="Enter your text here"></textarea>
+        <select id="sentiment_method">
+            <option value="vader">VADER</option>
+            <option value="textblob">TextBlob</option>
+            <option value="transformers">Transformers</option>
+        </select>
+        <button onclick="analyzeSentiment()">Analyze Sentiment</button>
+        <div id="sentiment_result" class="result-box"></div>
+        <a href="/" class="btn-back">Back to Home</a>
+
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2024 Text Analysis Service. All rights reserved.</p>
+                <p>Contact us: <a href="mailto:support@textanalysis.com">support@textanalysis.com</a></p>
+            </div>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

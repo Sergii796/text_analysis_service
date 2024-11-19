@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contextual Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Contextual Analysis</h1>
+        <p>
+            Use advanced models like GPT-2, BERT, and RoBERTa to generate text or analyze contextual information.
+            This feature allows you to gain insights or create coherent text continuations based on your input.
+        </p>
+        <h2>Example Input</h2>
+        <p>
+            "Artificial intelligence is transforming the way we work and live. In the near future..."
+        </p>
+        <p><strong>Result (GPT-2):</strong> "...we can expect AI to become an integral part of every industry, improving efficiency and creating new opportunities."</p>
+        <h2>Try it Yourself</h2>
+        <textarea id="context_text" placeholder="Enter your text here"></textarea>
+        <select id="context_method">
+            <option value="bert">BERT (Mask-based Context Filling)</option>
+            <option value="roberta">RoBERTa (Mask-based Context Filling)</option>
+            <option value="gpt2">GPT-2 (Text Generation)</option>
+        </select>
+        <button onclick="contextualAnalysis()">Analyze Context</button>
+        <div id="context_result" class="result-box">
+            <p class="placeholder">Your result will appear here...</p>
+        </div>        
+        <a href="/" class="btn-back">Back to Home</a>
+
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2024 Text Analysis Service. All rights reserved.</p>
+                <p>Contact us: <a href="mailto:support@textanalysis.com">support@textanalysis.com</a></p>
+            </div>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

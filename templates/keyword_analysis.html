@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyword Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Keyword Analysis</h1>
+        <p>Extract important phrases and key concepts from your text using advanced algorithms like KeyBERT, TF-IDF, and others.</p>
+
+        <h2>Example Input</h2>
+        <p>
+            "Artificial intelligence is transforming industries by automating tasks and improving decision-making."</p>
+        <h2>Try it Yourself</h2>
+        <textarea id="keyword_text" placeholder="Enter your text here"></textarea>
+        <select id="keyword_method">
+            <option value="keybert">KeyBERT</option>
+            <option value="tfidf">TF-IDF</option>
+            <option value="yake">YAKE</option>
+        </select>
+        <button id="analyze-btn">Analyze Keywords</button>
+        <div id="keyword_result"></div>
+
+        <a href="/" class="btn-back">Back to Home</a>
+
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2024 Text Analysis Service. All rights reserved.</p>
+                <p>Contact us: <a href="mailto:support@textanalysis.com">support@textanalysis.com</a></p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById("analyze-btn").addEventListener("click", async () => {
+            const text = document.getElementById("keyword_text").value.trim();
+            const method = document.getElementById("keyword_method").value;
+
+            if (!text) {
+                document.getElementById("keyword_result").innerHTML = `<div class="result-box">Please enter text for analysis.</div>`;
+                return;
+            }
+
+            try {
+                const response = await fetch("/analyze_keywords", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ text, method })
+                });
+
+                if (!response.ok) {
+                    document.getElementById("keyword_result").innerHTML = `<div class="result-box error">Error: ${response.statusText}</div>`;
+                    return;
+                }
+
+                const result = await response.json();
+                document.getElementById("keyword_result").innerHTML = `<div class="result-box"><p>Keywords: ${result.keywords.join(", ")}</p></div>`;
+            } catch (error) {
+                console.error("Error during keyword analysis:", error);
+                document.getElementById("keyword_result").innerHTML = `<div class="result-box error">An error occurred. Please try again later.</div>`;
+            }
+        });
+    </script>
+</body>
+</html>

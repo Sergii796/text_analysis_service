@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entity Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Entity Recognition</h1>
+        <p>
+            Identify important entities in your text, such as names, dates, locations, organizations, and more.
+            This feature uses advanced NLP techniques, including SpaCy and Transformers, to recognize entities with high accuracy.
+        </p>
+        <h2>Example Input</h2>
+        <p>
+            "Barack Obama was born in Hawaii in 1961. He served as the 44th president of the United States."
+        </p>
+        <h2>Try it Yourself</h2>
+        <textarea id="entity_text" placeholder="Enter your text here"></textarea>
+        <select id="entity_method">
+            <option value="spacy_en">spaCy (English)</option>
+            <option value="spacy_uk">spaCy (Ukrainian)</option>
+            <option value="transformers">Transformers (English)</option>
+        </select>
+        <button onclick="recognizeEntities()">Recognize Entities</button>
+        <div id="entity_result" class="result-box"></div>
+        <a href="/" class="btn-back">Back to Home</a>
+
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2024 Text Analysis Service. All rights reserved.</p>
+                <p>Contact us: <a href="mailto:support@textanalysis.com">support@textanalysis.com</a></p>
+            </div>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

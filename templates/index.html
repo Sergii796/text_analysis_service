@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Analysis Service</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container">
+                <h1>Text Analysis Service</h1>
+                <button class="nav-toggle" onclick="toggleNav()">↓</button>
+                <nav class="nav" id="navbar">
+                    <a href="{{ url_for('index') }}">Home</a>
+                    <a href="{{ url_for('keyword_analysis') }}">Keyword Analysis</a>
+                    <a href="{{ url_for('entity_recognition') }}">Entity Recognition</a>
+                    <a href="{{ url_for('contextual_analysis') }}">Contextual Analysis</a>
+                    <a href="{{ url_for('sentiment_analysis') }}">Sentiment Analysis</a>
+                    <a href="{{ url_for('question_answering') }}">Question Answering</a>
+                </nav>
+                <button onclick="toggleTheme()" class="theme-toggle">Toggle Theme</button>
+            </div>
+        </header>
+<body>
+    <main class="container">
+        <h1>Welcome to Text Analysis Service</h1>
+        <p>
+            Explore our advanced features for text analysis using cutting-edge AI technologies.
+        </p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>Keyword Analysis</h3>
+                <p>Extract key phrases and concepts from your text effortlessly.</p>
+                <a href="{{ url_for('keyword_analysis') }}" class="btn">Learn More</a>
+            </div>
+            <div class="feature-card">
+                <h3>Entity Recognition</h3>
+                <p>Identify names, dates, locations, and other entities in your text.</p>
+                <a href="{{ url_for('entity_recognition') }}" class="btn">Learn More</a>
+            </div>
+            <div class="feature-card">
+                <h3>Contextual Analysis</h3>
+                <p>Generate text or analyze context using powerful AI models.</p>
+                <a href="/contextual_analysis" class="btn">Learn More</a>
+            </div>
+            <div class="feature-card">
+                <h3>Sentiment Analysis</h3>
+                <p>Understand the emotional tone of your text.</p>
+                <a href="/sentiment_analysis" class="btn">Learn More</a>
+            </div>
+            <div class="feature-card">
+                <h3>Question Answering</h3>
+                <p>Ask questions and get answers based on your text.</p>
+                <a href="/question_answering" class="btn">Learn More</a>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Text Analysis Service. All rights reserved.</p>
+            <p>Contact us: <a href="mailto:support@textanalysis.com">support@textanalysis.com</a></p>
+        </div>
+    </footer>
+</div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

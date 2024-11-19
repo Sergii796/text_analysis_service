@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Answering</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Question Answering</h1>
+        <p>
+            This feature allows you to ask questions based on a given context. Using advanced AI models like BERT and DistilBERT, 
+            the system provides precise answers derived from the text you provide.
+        </p>
+        <h2>Example Input</h2>
+        <p><strong>Context:</strong></p>
+        <p>
+            "Albert Einstein was a theoretical physicist who developed the theory of relativity. He was awarded the Nobel Prize in Physics in 1921 for his discovery of the photoelectric effect."
+        </p>
+        <p><strong>Question:</strong> "What was Einstein awarded the Nobel Prize for?"</p>
+        <p><strong>Answer:</strong> "The photoelectric effect."</p>
+
+        <h2>Try it Yourself</h2>
+        <textarea id="qa_text" placeholder="Enter context for question answering"></textarea>
+        <input id="question" placeholder="Enter your question">
+        <select id="qa_method">
+         <option value="bert">BERT</option>
+         <option value="distilbert">DistilBERT</option>
+        </select>
+        <button onclick="answerQuestion()">Get Answer</button>
+        <div id="qa_result" class="result-box"></div>
+
+        <a href="/" class="btn-back">Back to Home</a>
+
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2024 Text Analysis Service. All rights reserved.</p>
+                <p>Contact us: <a href="mailto:support@textanalysis.com">support@textanalysis.com</a></p>
+            </div>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
